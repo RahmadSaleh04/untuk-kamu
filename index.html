@@ -6,90 +6,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap');
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            color: #4a2c2a;
+            background: linear-gradient(180deg, #fce2ea, #ffafc1);
+            color: #3b2f2f;
             text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatSlow {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+            100% { transform: translateY(0); }
         }
 
         header {
-            padding: 80px 20px;
+            padding: 110px 20px 90px;
+            animation: fadeUp 1.6s ease;
         }
 
         header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 3.4em;
+            margin-bottom: 14px;
+            letter-spacing: 1px;
+            animation: floatSlow 6s ease-in-out infinite;
         }
 
         header p {
-            font-size: 1.2em;
+            font-size: 1.15em;
+            opacity: 0.75;
         }
 
         section {
-            padding: 60px 20px;
-            background: rgba(255, 255, 255, 0.85);
-            margin: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 80px 45px;
+            border-radius: 34px;
+            animation: fadeUp 1.4s ease;
         }
 
-        section h2 {
-            margin-bottom: 20px;
-            color: #c94f7c;
+        .card {
+            background: rgba(255, 241, 241, 0.95);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.08);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffa2d7, #fbcfe8);
+        }
+
+        h2 {
+            font-size: 2.1em;
+            margin-bottom: 28px;
+            color: #9b4f68;
+        }
+
+        .love-note {
+            font-size: 1.08em;
+            line-height: 2;
+            max-width: 650px;
+            margin: auto;
+            opacity: 0.95;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+            margin-top: 40px;
         }
 
         .gallery img {
             width: 100%;
-            border-radius: 15px;
+            border-radius: 26px;
             object-fit: cover;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.15);
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
         }
 
-        .love-note {
-            font-size: 1.1em;
-            line-height: 1.8;
+        .gallery img:hover {
+            transform: translateY(-10px) scale(1.04);
+            box-shadow: 0 35px 75px rgba(0,0,0,0.22);
         }
 
-        footer {
-            padding: 40px 20px;
-            font-size: 0.9em;
+        .quote {
+            font-size: 1.6em;
+            font-style: italic;
+            background: linear-gradient(135deg, #fff7ed, #ffe4e6);
+            color: #5a3e36;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
         }
 
-        .heart {
-            color: red;
+        .reasons {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reasons li {
+            background: rgba(255,255,255,0.85);
+            margin: 16px auto;
+            padding: 16px 20px;
+            max-width: 420px;
+            border-radius: 20px;
+            font-size: 1em;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .bucin {
+            background: linear-gradient(135deg, #fde7f3, #f9a8d4);
+            color: #3b2f2f;
         }
 
         button {
-            background: #c94f7c;
-            color: white;
+            background: linear-gradient(135deg, #d16ba5, #f472b6);
+            color: #fff;
             border: none;
-            padding: 12px 25px;
-            font-size: 1em;
-            border-radius: 30px;
+            padding: 15px 42px;
+            font-size: 1.05em;
+            border-radius: 50px;
             cursor: pointer;
-            transition: 0.3s;
+            box-shadow: 0 18px 40px rgba(209,107,165,0.45);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
 
         button:hover {
-            background: #a83e65;
+            transform: translateY(-5px);
+            box-shadow: 0 28px 60px rgba(209,107,165,0.65);
+        }
+
+        footer {
+            padding: 70px 20px;
+            font-size: 0.95em;
+            opacity: 0.85;
+        }
+
+        .heart {
+            color: #d16ba5;
+            animation: floatSlow 3.5s ease-in-out infinite;
         }
     </style>
 </head>
 <body>
+
+<!-- Decorative background shapes -->
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
 
 <header>
     <h1>Hai, Cintaku ❤️</h1>
     <p>Website kecil ini aku buat khusus untuk kamu</p>
 </header>
 
-<section>
+<section class="card">
     <h2>💌 Tentang Kita</h2>
     <p class="love-note">
         Sejak pertama kali kita bertemu, hidupku terasa berbeda.
@@ -98,30 +177,61 @@
     </p>
 </section>
 
-<section>
-    <h2>📸 Kenangan Indah</h2>
-    <div class="gallery">
-        <img src="https://via.placeholder.com/400x300?text=Foto+1" alt="Kenangan 1">
-        <img src="https://via.placeholder.com/400x300?text=Foto+2" alt="Kenangan 2">
-        <img src="https://via.placeholder.com/400x300?text=Foto+3" alt="Kenangan 3">
-    </div>
-    <p style="margin-top:15px;">(Ganti foto-foto ini dengan kenangan kita ya 😊)</p>
+<section class="highlight">
+    <h2>✨ Alasan Aku Mencintaimu</h2>
+    <ul class="reasons">
+        <li>Kamu selalu ada saat aku butuh</li>
+        <li>Senyummu bikin hariku lebih baik</li>
+        <li>Kamu menerima aku apa adanya</li>
+        <li>Bersamamu, aku merasa pulang</li>
+    </ul>
 </section>
 
-<section>
+<section class="card">
+    <h2>📸 Kenangan Indah</h2>
+    <div class="gallery">
+        <img src="images/foto 1.jpeg" alt="Kenangan 1">
+        <img src="images/foto 2.jpeg" alt="Kenangan 2">
+        <img src="images/foto 3.jpeg" alt="Kenangan 3">
+    </div>
+</section>
+
+<section class="quote">
+    <p>"Aku tidak menjanjikan sempurna, tapi aku menjanjikan setia."</p>
+</section>
+
+<section class="card">
     <h2>🌹 Pesan Untukmu</h2>
     <p class="love-note">
         Aku mungkin tidak sempurna, tapi aku akan selalu berusaha
         mencintaimu dengan cara terbaik yang aku bisa.
-        Semoga website ini bisa membuatmu tersenyum,
-        seperti kamu selalu membuatku bahagia.
     </p>
     <br>
     <button onclick="alert('Aku sayang kamu ❤️')">Klik Aku</button>
 </section>
 
+<section class="bucin">
+    <h2>💖 Kamu Segalanya Buat Aku</h2>
+    <p class="love-note">
+        Kalau aku harus memilih antara dunia dan kamu,
+        aku akan memilih kamu.
+        Karena tanpamu, dunia tidak akan pernah terasa sama.
+    </p>
+
+    <div class="love-box">
+        <p>❤️ Aku sayang kamu hari ini</p>
+        <p>❤️ Aku sayang kamu besok</p>
+        <p>❤️ Aku sayang kamu selamanya</p>
+    </div>
+
+    <button class="big-love" onclick="alert('Aku cinta kamu, lebih dari kata-kata ❤️')">
+        Peluk Virtual 🤍
+    </button>
+</section>
+
 <footer>
-    Dibuat dengan <span class="heart">❤</span> oleh aku, hanya untuk kamu
+    Dibuat dengan <span class="heart">❤</span> penuh cinta, rindu, dan doa<br>
+    <small>— Dari aku, yang selalu jatuh cinta padamu setiap hari</small>
 </footer>
 
 </body>
