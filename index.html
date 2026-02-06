@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Untuk Kamu ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #4a2c2a;
+            text-align: center;
+        }
+
+        header {
+            padding: 80px 20px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        section {
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.85);
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+            color: #c94f7c;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .love-note {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        footer {
+            padding: 40px 20px;
+            font-size: 0.9em;
+        }
+
+        .heart {
+            color: red;
+        }
+
+        button {
+            background: #c94f7c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #a83e65;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Hai, Cintaku ❤️</h1>
+    <p>Website kecil ini aku buat khusus untuk kamu</p>
+</header>
+
+<section>
+    <h2>💌 Tentang Kita</h2>
+    <p class="love-note">
+        Sejak pertama kali kita bertemu, hidupku terasa berbeda.
+        Terima kasih sudah hadir, bertahan, dan selalu ada di setiap langkahku.
+        Kamu adalah rumah, doa, dan alasanku untuk tersenyum setiap hari.
+    </p>
+</section>
+
+<section>
+    <h2>📸 Kenangan Indah</h2>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/400x300?text=Foto+1" alt="Kenangan 1">
+        <img src="https://via.placeholder.com/400x300?text=Foto+2" alt="Kenangan 2">
+        <img src="https://via.placeholder.com/400x300?text=Foto+3" alt="Kenangan 3">
+    </div>
+    <p style="margin-top:15px;">(Ganti foto-foto ini dengan kenangan kita ya 😊)</p>
+</section>
+
+<section>
+    <h2>🌹 Pesan Untukmu</h2>
+    <p class="love-note">
+        Aku mungkin tidak sempurna, tapi aku akan selalu berusaha
+        mencintaimu dengan cara terbaik yang aku bisa.
+        Semoga website ini bisa membuatmu tersenyum,
+        seperti kamu selalu membuatku bahagia.
+    </p>
+    <br>
+    <button onclick="alert('Aku sayang kamu ❤️')">Klik Aku</button>
+</section>
+
+<footer>
+    Dibuat dengan <span class="heart">❤</span> oleh aku, hanya untuk kamu
+</footer>
+
+</body>
+</html>
