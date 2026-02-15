@@ -1,238 +1,206 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Untuk Kamu ❤️</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Untuk Kamu ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap');
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(180deg, #fce2ea, #ffafc1);
-            color: #3b2f2f;
-            text-align: center;
-            overflow-x: hidden;
-        }
+* { box-sizing: border-box; }
 
-        h1, h2 {
-            font-family: 'Playfair Display', serif;
-        }
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9ecf, #ffd6ec);
+    overflow-x: hidden;
+    color: white;
+    text-align: center;
+}
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+}
 
-        @keyframes floatSlow {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-14px); }
-            100% { transform: translateY(0); }
-        }
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
 
-        header {
-            padding: 110px 20px 90px;
-            animation: fadeUp 1.6s ease;
-        }
+/* Pages */
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* tengah vertikal */
+    align-items: center;       /* tengah horizontal */
+    
+    text-align: center;
+    animation: fadeSlide 0.6s ease;
+}
 
-        header h1 {
-            font-size: 3.4em;
-            margin-bottom: 14px;
-            letter-spacing: 1px;
-            animation: floatSlow 6s ease-in-out infinite;
-        }
+.page:not(.active) {
+    display: none;
+}
+.page.active {
+    display: flex;
+}
 
-        header p {
-            font-size: 1.15em;
-            opacity: 0.75;
-        }
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        section {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 80px 45px;
-            border-radius: 34px;
-            animation: fadeUp 1.4s ease;
-        }
+/* Card */
+.card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 40px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
 
-        .card {
-            background: rgba(255, 241, 241, 0.95);
-            box-shadow: 0 30px 70px rgba(0,0,0,0.08);
-        }
+/* Buttons */
+.nav-btn {
+    margin: 20px 10px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: none;
+    background: #ff4fa3;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .highlight {
-            background: linear-gradient(135deg, #ffa2d7, #fbcfe8);
-        }
+.nav-btn:hover {
+    transform: scale(1.1);
+}
 
-        h2 {
-            font-size: 2.1em;
-            margin-bottom: 28px;
-            color: #9b4f68;
-        }
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
 
-        .love-note {
-            font-size: 1.08em;
-            line-height: 2;
-            max-width: 650px;
-            margin: auto;
-            opacity: 0.95;
-        }
+.gallery img {
+    width: 100%;
+    border-radius: 15px;
+    transition: 0.4s;
+}
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 28px;
-            margin-top: 40px;
-        }
+.gallery img:hover {
+    transform: scale(1.05);
+}
 
-        .gallery img {
-            width: 100%;
-            border-radius: 26px;
-            object-fit: cover;
-            box-shadow: 0 25px 55px rgba(0,0,0,0.15);
-            transition: transform 0.6s ease, box-shadow 0.6s ease;
-        }
-
-        .gallery img:hover {
-            transform: translateY(-10px) scale(1.04);
-            box-shadow: 0 35px 75px rgba(0,0,0,0.22);
-        }
-
-        .quote {
-            font-size: 1.6em;
-            font-style: italic;
-            background: linear-gradient(135deg, #fff7ed, #ffe4e6);
-            color: #5a3e36;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
-        }
-
-        .reasons {
-            list-style: none;
-            padding: 0;
-        }
-
-        .reasons li {
-            background: rgba(255,255,255,0.85);
-            margin: 16px auto;
-            padding: 16px 20px;
-            max-width: 420px;
-            border-radius: 20px;
-            font-size: 1em;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-
-        .bucin {
-            background: linear-gradient(135deg, #fde7f3, #f9a8d4);
-            color: #3b2f2f;
-        }
-
-        button {
-            background: linear-gradient(135deg, #d16ba5, #f472b6);
-            color: #fff;
-            border: none;
-            padding: 15px 42px;
-            font-size: 1.05em;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 18px 40px rgba(209,107,165,0.45);
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-        }
-
-        button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 28px 60px rgba(209,107,165,0.65);
-        }
-
-        footer {
-            padding: 70px 20px;
-            font-size: 0.95em;
-            opacity: 0.85;
-        }
-
-        .heart {
-            color: #d16ba5;
-            animation: floatSlow 3.5s ease-in-out infinite;
-        }
-    </style>
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+}
+</style>
 </head>
 <body>
 
-<!-- Decorative background shapes -->
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
+<!-- HOME -->
+<div class="page active">
+    <h1>Hai Cintaku ❤️</h1>
+    <p>Kamu adalah alasan senyumku setiap hari</p>
+    <button class="nav-btn" onclick="nextPage()">Selanjutnya ➜</button>
+</div>
 
-<header>
-    <h1>Hai, Cintaku ❤️</h1>
-    <p>Website kecil ini aku buat khusus untuk kamu</p>
-</header>
-
-<section class="card">
-    <h2>💌 Tentang Kita</h2>
-    <p class="love-note">
-        Sejak pertama kali kita bertemu, hidupku terasa berbeda.
-        Terima kasih sudah hadir, bertahan, dan selalu ada di setiap langkahku.
-        Kamu adalah rumah, doa, dan alasanku untuk tersenyum setiap hari.
-    </p>
-</section>
-
-<section class="highlight">
-    <h2>✨ Alasan Aku Mencintaimu</h2>
-    <ul class="reasons">
-        <li>Kamu selalu ada saat aku butuh</li>
-        <li>Senyummu bikin hariku lebih baik</li>
-        <li>Kamu menerima aku apa adanya</li>
-        <li>Bersamamu, aku merasa pulang</li>
-    </ul>
-</section>
-
-<section class="card">
-    <h2>📸 foto kamu </h2>
-    <div class="gallery">
-        <img src="images/foto 1.jpeg" alt="Kenangan 1">
-        <img src="images/foto 2.jpeg" alt="Kenangan 2">
-        <img src="images/foto 3.jpeg" alt="Kenangan 3">
+<!-- ABOUT -->
+<div class="page">
+    <div class="card">
+        <h2>💌 Tentang Kita</h2>
+        <p>
+            Sejak pertama kali kita bertemu,
+            dunia terasa lebih hangat.
+            Kamu adalah rumah tempat aku kembali.
+        </p>
+        <button class="nav-btn" onclick="prevPage()">⬅ Kembali</button>
+        <button class="nav-btn" onclick="nextPage()">Selanjutnya ➜</button>
     </div>
-</section>
+</div>
 
-<section class="quote">
-    <p>"Aku tidak menjanjikan sempurna, tapi aku menjanjikan setia."</p>
-</section>
-
-<section class="card">
-    <h2>🌹 Pesan Untukmu</h2>
-    <p class="love-note">
-        Aku mungkin tidak sempurna, tapi aku akan selalu berusaha
-        mencintaimu dengan cara terbaik yang aku bisa.
-    </p>
-    <br>
-    <button onclick="alert('Aku sayang kamu ❤️')">Klik Aku</button>
-</section>
-
-<section class="bucin">
-    <h2>💖 Kamu Segalanya Buat Aku</h2>
-    <p class="love-note">
-        Kalau aku harus memilih antara dunia dan kamu,
-        aku akan memilih kamu.
-        Karena tanpamu, dunia tidak akan pernah terasa sama.
-    </p>
-
-    <div class="love-box">
-        <p>❤️ Aku sayang kamu hari ini</p>
-        <p>❤️ Aku sayang kamu besok</p>
-        <p>❤️ Aku sayang kamu selamanya</p>
+<!-- GALLERY -->
+<div class="page">
+    <div class="card">
+        <h2>📸 Foto Kamu</h2>
+        <div class="gallery">
+            <img src="images/foto 1.jpeg">
+            <img src="images/foto 2.jpeg">
+            <img src="images/foto 3.jpeg">
+        </div>
+        <button class="nav-btn" onclick="prevPage()">⬅ Kembali</button>
+        <button class="nav-btn" onclick="nextPage()">Selanjutnya ➜</button>
     </div>
+</div>
 
-    <button class="big-love" onclick="alert('Aku cinta kamu, lebih dari kata-kata ❤️')">
-        Peluk Virtual 🤍
-    </button>
-</section>
+<!-- SECRET -->
+<div class="page">
+    <div class="card">
+        <h2>💖 Pesan Terakhir</h2>
+        <p>
+            Aku tidak menjanjikan sempurna,
+            tapi aku menjanjikan setia.
+            Terima kasih sudah hadir di hidupku.
+        </p>
+        <button class="nav-btn" onclick="prevPage()">⬅ Kembali</button>
+    </div>
+</div>
 
-<footer>
-    Dibuat dengan <span class="heart">❤</span> penuh cinta, rindu, dan doa<br>
-    <small>— Dari aku, yang selalu jatuh cinta padamu setiap hari</small>
-</footer>
+<script>
+let currentPage = 0;
+const pages = document.querySelectorAll(".page");
+
+function showPage(index){
+    pages.forEach(page => page.classList.remove("active"));
+    pages[index].classList.add("active");
+}
+
+function nextPage(){
+    if(currentPage < pages.length - 1){
+        currentPage++;
+        showPage(currentPage);
+    }
+}
+
+function prevPage(){
+    if(currentPage > 0){
+        currentPage--;
+        showPage(currentPage);
+    }
+}
+
+/* Floating hearts */
+function createHearts(){
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 7000);
+    }, 600);
+}
+
+createHearts();
+</script>
 
 </body>
 </html>
